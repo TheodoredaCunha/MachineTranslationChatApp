@@ -1,0 +1,122 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-display {
+  background-color: rgb(151, 151, 151);
+  width: 600px;
+  max-height: 400px;
+  min-height: 400px;
+  margin-bottom: 20px;
+  border-radius: 50px; 
+  overflow-y: scroll;
+}
+
+.messages {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 50px;
+  font-size: 18px;
+}
+
+.Text-input {
+  display: flex;
+  align-items: center;
+}
+
+.Text-box{
+  display: flex;
+  border-radius: 30px; 
+  width: 300px;
+  height: 25px;
+  font-size: 15px
+
+}
+
+.Send {
+  display: flex;
+  margin-left: 15px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Send:active {
+  background-color: #3e8e41;
+  transform: scale(0.95);
+}
+
+.input-area input {
+  margin-right: 10px;
+}
+
+.Language-selector {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 250px;
+  min-height: 250px;
+}
+
+.Language-button {
+  display: absolute;
+  margin-right: 100px;
+  margin-top: 25px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Language-button:active{
+  background-color: #3e8e41;
+  transform: scale(0.95);
+}
+
+.Language-options {
+  display: absolute;
+  margin-top: 0px;
+  margin-right: 50px;
+  min-width: 75px;
+  max-width: 75px;
+  min-height: 50px;
+  max-height: 50px;
+  flex-direction: column;
+  align-content: center;
+}
+
+.Option-button{
+  top: 0px;
+  margin-top: 0px;
+  margin-left: 17px;
+  min-width: 90px;
+  max-width: 90px;
+  min-height: 22px;
+  max-height: 22px;
+  border-radius: 5px;
+
+}
+
+
+.Selected-language {
+  display: absolute;
+  margin-top: 0px;
+  margin-left: 5px;
+  margin-block-end: 0px;
+}
