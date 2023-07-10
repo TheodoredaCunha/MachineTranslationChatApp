@@ -6,12 +6,17 @@ import socketIO from 'socket.io-client';
 
 const socket = socketIO.connect('http://localhost:4000');
 function App() {
+  const [userID, setUserID] = useState('');
+  socket.on('UpdateUserInfo', (userInfo) => {
+    console.log("hello from App.js");
+    setUserID(userInfo.id);
+  });
   return (
     <BrowserRouter>
       <div>
         <Routes>
-          <Route path="/" element={<Home socket={socket} />}></Route>
-          <Route path="/chat" element={<Chat socket={socket} />}></Route>
+          <Route path="/" element={<Home socket={socket} userId={userID} />}></Route>
+          <Route path="/chat" element={<Chat socket={socket} userId={userID} />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

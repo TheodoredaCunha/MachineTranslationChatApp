@@ -11,7 +11,7 @@
   max-height: 400px;
   min-height: 400px;
   margin-bottom: 20px;
-  border-radius: 50px; 
+  /*border-radius: 50px;*/
   overflow-y: scroll;
 }
 
@@ -21,6 +21,26 @@
   justify-content: flex-start;
   margin-left: 50px;
   font-size: 18px;
+}
+
+.receivedMessageDiv{
+  float: left;
+  padding: 10px;
+  margin: 5px;
+  width: 500px;
+  height: fit-content;
+  text-align: left;
+  background-color: #fff;
+}
+
+.sentMessageDiv{
+  float: right;
+  padding: 10px;
+  margin: 5px;
+  width: 500px;
+  height: fit-content;
+  text-align: right;
+  background-color: #3e8e41;
 }
 
 .Text-input {
@@ -120,3 +140,4 @@
   margin-left: 5px;
   margin-block-end: 0px;
 }
+

@@ -28,8 +28,7 @@ io.on('connection', (socket) => {
       });
 
     socket.on('message', (data) => {
-        console.log(`sending ${data.text} to ${data.roomID}`);
-        io.to(data.roomID).emit('messageResponse', data.text);
+        io.to(data.roomID).emit('messageResponse', {text: data.text, userId: data.userId});
       });
 
 });

@@ -3,7 +3,7 @@ import LanguageSelector from './LanguageSelector';
 import './Chat.css';
 
 
-const Chat = ( {socket} ) => {
+const Chat = ( {socket, userId} ) => {
   const [message, setMessage] = useState('');
   const [chatLog, setChatLog] = useState([]);
   const [roomID, setRoomID] = useState('');
@@ -18,7 +18,7 @@ const Chat = ( {socket} ) => {
 
     useEffect(() => {
     socket.on('messageResponse', (data) => {// accept message response
-      setChatLog((prevChatLog) => [...prevChatLog, data]);
+      setChatLog((prevChatLog) => [...prevChatLog, [data.text, data.userId]]);
     }); 
 
     return () => socket.off('messageResponse');
@@ -26,10 +26,12 @@ const Chat = ( {socket} ) => {
 
 
   const handleSendMessage = () => {
+    console.log(userId);
     if (message.trim() !== '') {
       socket.emit('message', { // emitting event to update message
         text: message,
-        roomID: roomID
+        roomID: roomID,
+        userId: userId
       });
       setMessage('');
     }
@@ -41,7 +43,13 @@ const Chat = ( {socket} ) => {
       <h2>{roomID}</h2>
       <div className="text-display">
         {chatLog.map((chat, index) => (
-          <p key={index} className='messages'>{chat}</p>
+          <div key={index}>
+            <div className={chat[1] == userId ? 'sentMessageDiv':'receivedMessageDiv'}>
+              <p className='messages'>{chat[0]}</p>
+            </div>
+            <br />
+          </div>
+
         ))}
       </div>
       <div className="Text-input">
