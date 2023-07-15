@@ -3,7 +3,7 @@ import { Link} from 'react-router-dom';
 import './home.css';
 
 const Home = ({ socket, userId}) => {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState(userId);
   return (
     <div className="home-container">
       <h1 className="welcome-heading">Welcome</h1>

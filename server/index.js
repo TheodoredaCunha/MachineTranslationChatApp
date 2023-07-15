@@ -23,12 +23,14 @@ io.on('connection', (socket) => {
     socket.on("joinRoom", (roomInfo) => {
         console.log("joining room");
         socket.join(roomInfo.room);
+        username = roomInfo.username
         io.to(roomInfo.room).emit("joinRoomResponse", roomInfo);
+        socket.emit('updateUsername', {username});
         console.log(`User ${socket.id} joined ${roomInfo.room}`);
       });
 
     socket.on('message', (data) => {
-        io.to(data.roomID).emit('messageResponse', {text: data.text, userId: data.userId});
+        io.to(data.roomID).emit('messageResponse', {text: data.text, userId: data.userId, username: data.username});
       });
 
 });
