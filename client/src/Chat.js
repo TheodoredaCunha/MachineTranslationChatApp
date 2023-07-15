@@ -7,13 +7,15 @@ const Chat = ( {socket, userId} ) => {
   const [message, setMessage] = useState('');
   const [chatLog, setChatLog] = useState([]);
   const [roomID, setRoomID] = useState('');
+  const [username, setUsername] = useState(userId);
 
   const handleInputChange = (event) => {
     setMessage(event.target.value);
   };
 
     socket.on('joinRoomResponse', (data) => {
-      setRoomID(data.room)
+      setRoomID(data.room);
+      setUsername(data.username);
     }); 
 
     useEffect(() => {
@@ -43,7 +45,7 @@ const Chat = ( {socket, userId} ) => {
       <h2>{roomID}</h2>
       <div className="text-display">
         {chatLog.map((chat, index) => (
-          <div key={index}>
+          <div key={index} className="message-box">
             <div className={chat[1] == userId ? 'sentMessageDiv':'receivedMessageDiv'}>
               <p className='messages'>{chat[0]}</p>
             </div>
