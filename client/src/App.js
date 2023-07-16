@@ -16,6 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home socket={socket} userId={userID} />}></Route>
           <Route path="/chat" element={<Chat socket={socket} userId={userID} />}></Route>
