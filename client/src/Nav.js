@@ -6,17 +6,17 @@ const Navbar = () => {
     <nav>
       <ul>
         <li>
-          <NavLink exact to="/" activeClassName="active">
+          <NavLink exact to="/Home" activeClassName="active">
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to="/chat" activeClassName="active">
+          <NavLink to="/Chat" activeClassName="active">
             Chat
           </NavLink>
         </li>
         <li>
-          <NavLink to="/translate" activeClassName="active">
+          <NavLink to="/Translator" activeClassName="active">
             Translator
           </NavLink>
         </li>
